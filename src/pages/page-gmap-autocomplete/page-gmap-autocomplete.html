@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-10>
+                    <ion-navbar color="primary">
+                            <button ion-button menuToggle>
+                                <ion-icon name="menu"></ion-icon>
+                            </button>         
+                            <ion-title>Google Map Integration All Method</ion-title>
+                    </ion-navbar>
+            </ion-col>
+            <ion-col col-2>
+                 <!-- Button to Add Location Marker -->
+                 <button [hidden]="!showHide" (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+                 <ion-item>
+                        <ion-label>MapsEvents</ion-label>
+                        <ion-select [(ngModel)]="mapevents">
+                          <ion-option value="addmarker">AddMarker</ion-option>
+                          <ion-option value="clickmarker">ClickMarker</ion-option>
+                          <ion-option value="panrectangle">Rectangle</ion-option>
+                        </ion-select>
+                </ion-item>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>  
+</ion-header>
+<ion-content (click)="onPropChangeClick($event)"  (pan)="onPropChangePan($event)" (swipe)="onPropChangeSwipe(e)">
+    <button ion-button color="danger" (click)="getGeo()" > GetGeo </button>
+    <div #map id="map"></div>
+    <ion-list>
+        <ion-item margin>
+            <ion-input type="text" placeholder="Pick an address"
+                (click)="showModal()" 
+                [(ngModel)]="address.place">
+            </ion-input>
+        </ion-item>
+        <ion-item *ngIf="address.set==true">
+            <ion-icon name="pin" item-left></ion-icon>
+            <h3>Full text address</h3>
+            <p>{{ placedetails.address }}</p>
+            <h3>Street name</h3>
+            <p>{{ placedetails.components.route.long }}</p>
+            <h3>Street number</h3>
+            <p>{{ placedetails.components.street_number.long }}</p>
+            <h3>Neighbourhood</h3>
+            <p>{{ placedetails.components.sublocality_level_1.long }}</p>
+            <h3>Postal Code</h3>
+            <p>{{ placedetails.components.postal_code.long }}{{ placedetails.components.postal_code_suffix.long }}</p>    
+            <h3>City</h3>
+            <p>{{ placedetails.components.locality.long }}</p>     
+            <h3>Location geometry</h3>
+            <p>{{ placedetails.lat }}, {{ placedetails.lng }}</p>                                           
+        </ion-item>
+    </ion-list>
+</ion-content>

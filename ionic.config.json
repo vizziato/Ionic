@@ -1,5 +1,8 @@
 {
   "name": "googlePlacesSearchBox",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "e0490279",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

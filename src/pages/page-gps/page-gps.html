@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-10>
+                <ion-navbar color="primary">
+                        <button ion-button menuToggle>
+                            <ion-icon name="menu"></ion-icon>
+                        </button>         
+                        <ion-title><ion-title>Google Map Integration Geolocalisation</ion-title></ion-title>
+                </ion-navbar>
+            </ion-col>
+            <ion-col col-2>
+                    <button ion-button color="danger" (click)="getGeo()" > GetGeo </button>
+            </ion-col> 
+          </ion-row>
+        </ion-grid> 
+</ion-header>
+
+<ion-content>
+      <div #map id="map"></div>  <!-- To Load MAP -->
+</ion-content>
+
+

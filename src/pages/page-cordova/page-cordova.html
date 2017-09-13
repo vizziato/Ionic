@@ -1,0 +1,37 @@
+<ion-header>
+ 
+      <ion-navbar color="primary">
+              <button ion-button menuToggle>
+                  <ion-icon name="menu"></ion-icon>
+              </button>         
+              <ion-title><ion-title>Flashlight On/Off</ion-title></ion-title>
+      </ion-navbar>
+  
+</ion-header>
+
+
+ 
+<ion-content padding>
+  <button ion-button color="primary" (click)="switchOn()" > ON </button>
+  <button ion-button color="danger" (click)="switchOff()" > OFF </button>
+
+  <ion-card>
+      
+      <ion-item>
+          <ion-label stacked>Phone number</ion-label>
+          <ion-input [(ngModel)]="phoneNumber" type="tel"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label stacked>message</ion-label>
+          <ion-input [(ngModel)]="textMessage" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <button ion-button icon-right (click)="sendTextMessage()">
+                Send
+                <ion-icon name="checkmark"></ion-icon>
+              </button>
+          </ion-item>
+      </ion-card>
+</ion-content>
+

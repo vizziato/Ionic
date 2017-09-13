@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color="primary">
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>         
+            <ion-title>Firebase</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+        <div>
+                <p>{{ currentUser?.email}}</p>
+        </div>
+        <button ion-button color="light" (click)="login()">Login</button>
+        <button ion-button color="dark" (click)="logout()">Logout</button>
+        <button ion-button color="secondary" (click)="downloadFile()">Download</button>
+        <button ion-button color="primary" (click)="playFile()">Play</button>
+        <button ion-button color="danger" (click)="stopFile()">Stop</button>
+        
+        
+        <audio controls>         
+            <source  src="../../assets/audio/alarm.mp3" type="audio/mp3">
+        </audio>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addSong()">
+                    <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    <ion-list>
+        <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
+            {{song.title}}
+        </ion-item>
+    </ion-list>   
+     
+</ion-content>
